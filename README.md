@@ -150,3 +150,7 @@ DISTRIBUTED_BLACKLIST_DEBUG_MODE=false
 ## 📄 许可证
 
 LGPLv3
+
+## 致谢
+
+- 感谢 [nonebot-plugin-easy-blacklist](https://github.com/bingqiu456/nonebot-plugin-easy-blacklist) 提供黑名单部分逻辑实现
