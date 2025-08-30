@@ -115,7 +115,7 @@ psql -U blacklist_user -d distributed_blacklist -f /path/to/your/init_db.sql
 
 ### 配置示例
 
-```
+```dotenv
 # .env 文件
 DISTRIBUTED_BLACKLIST_DB_HOST=your_database_host
 DISTRIBUTED_BLACKLIST_DB_PORT=5432

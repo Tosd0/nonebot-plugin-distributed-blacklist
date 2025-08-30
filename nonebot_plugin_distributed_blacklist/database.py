@@ -8,7 +8,6 @@ import asyncio
 import random
 from datetime import datetime, timezone
 from pathlib import Path
-from nonebot_plugin_localstore import get_plugin_data_file
 import json
 
 # 数据库连接池
@@ -19,10 +18,12 @@ _client_id: Optional[str] = None
 
 def _get_client_id_file_path() -> Path:
     """获取客户端ID文件路径"""
+    from nonebot_plugin_localstore import get_plugin_data_file
     return get_plugin_data_file("blacklist_client_id.txt")
 
 def _get_local_data_file_path() -> Path:
     """获取本地数据文件路径"""
+    from nonebot_plugin_localstore import get_plugin_data_file
     return get_plugin_data_file("blacklist_data.json")
 
 def _load_or_generate_client_id() -> str:
