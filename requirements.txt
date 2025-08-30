@@ -1,0 +1,5 @@
+nonebot2>=2.3.0
+nonebot-adapter-onebot>=2.3.0
+nonebot-plugin-apscheduler>=0.3.0
+asyncpg>=0.28.0
+pydantic>=1.10.0
