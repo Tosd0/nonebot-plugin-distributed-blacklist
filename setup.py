@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="nonebot-plugin-distributed-blacklist",
-    version="1.0.3",
+    version="1.0.5",
     author="Tosd0",
     author_email="tntobsidian@126.com",
     description="基于PostgreSQL的分布式黑名单系统",

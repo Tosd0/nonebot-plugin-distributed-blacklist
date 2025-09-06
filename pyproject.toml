@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nonebot-plugin-distributed-blacklist"
-version = "1.0.3"
+version = "1.0.5"
 description = "基于PostgreSQL的分布式黑名单系统"
 authors = [
     {name = "Tosd0", email = "tntobsidian@126.com"}
