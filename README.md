@@ -4,9 +4,9 @@
 
 ## 功能特性
 
-- 🚀 **高性能内存缓存**: 使用高效的二叉树结构实现毫秒级黑名单检查
+- 🚀 **高性能内存缓存**: 使用高效的二叉树结构实现毫秒级黑名单检查，自动缓存具有管理权限的群组避免无意义API调用
 - 🌐 **分布式架构**: 基于 PostgreSQL 的中心化数据存储，支持多节点部署
-- ⚡ **实时同步**: 自动同步黑名单变更，确保所有节点数据一致
+- ⚡ **实时同步**: 自动同步黑名单变更，后写入者胜，确保所有节点数据一致
 - 🛡️ **自动防护**: 定时检查群成员，自动踢出黑名单用户
 - 📊 **操作日志**: 完整的操作记录和版本控制
 
@@ -99,11 +99,12 @@ psql -U blacklist_user -d distributed_blacklist -f /path/to/your/init_db.sql
 
 | 配置项 | 必填 | 默认值 | 说明 |
 |:-----:|:----:|:----:|:----:|
-| `distributed_blacklist_db_host` | 否 | localhost | PostgreSQL 服务器地址 |
+| `superusers` | 否 | [] | 踢人后会私信上报 SUPERUSERS |
+| `distributed_blacklist_db_host` | 是 | localhost | PostgreSQL 服务器地址 |
 | `distributed_blacklist_db_port` | 否 | 5432 | PostgreSQL 端口 |
-| `distributed_blacklist_db_name` | 否 | blacklist | 数据库名称 |
-| `distributed_blacklist_db_user` | 否 | blacklist | 数据库用户名 |
-| `distributed_blacklist_db_password` | 否 | 无 | 数据库密码 |
+| `distributed_blacklist_db_name` | 是 | blacklist | 数据库名称 |
+| `distributed_blacklist_db_user` | 是 | blacklist | 数据库用户名 |
+| `distributed_blacklist_db_password` | 是 | 无 | 数据库密码 |
 | `distributed_blacklist_admins` | 否 | [] | 黑名单管理员QQ号列表 |
 | `distributed_blacklist_sync_interval` | 否 | 300 | 同步间隔（秒） |
 | `distributed_blacklist_kick_check_interval` | 否 | 3600 | 踢人检查间隔（秒） |
@@ -150,6 +151,8 @@ DISTRIBUTED_BLACKLIST_DEBUG_MODE=false
 
 黑名单数据使用增量同步，若增量同步出现问题，请删除`LocalStore`提供的插件数据目录下的`blacklist_data.json`。
 
+只有 SUPERUSERS 和 DISTRIBUTED_BLACKLIST_ADMINS 里设置的角色才可以使用黑名单相关功能。但在踢人完毕后，Bot 只会向 SUPERUSERS 发送报备通知。
+
 ### 使用示例
 
 ```
@@ -165,6 +168,10 @@ DISTRIBUTED_BLACKLIST_DEBUG_MODE=false
 # 同步黑名单
 同步黑名单
 ```
+
+## 效果图
+<img width="1158" height="614" alt="image" src="https://github.com/user-attachments/assets/a344d119-7c2f-47a7-a4db-90816d24d909" />
+<img width="478" height="242" alt="image" src="https://github.com/user-attachments/assets/f7bf432a-eb5b-4f12-b1e0-52f2bf344e59" />
 
 ## 📄 许可证
 
